@@ -22,7 +22,7 @@ public class GeRegisterFragmentPresenter implements BaseRegisterFragmentContract
 
     @Override
     public void initializeQueries(String mainCondition) {
-        view.initializeQueryParams(getTablename(),getCountSelect(mainCondition), getMainSelect(mainCondition));
+        view.initializeQueryParams(getTablename(),getCountSelect(mainCondition),getMainSelect(mainCondition));
         ((GeRegisterFragment)view).initializeAdapter();
         ((GeRegisterFragment)view).countExecute();
         ((GeRegisterFragment)view).filterandSortInInitializeQueries();
