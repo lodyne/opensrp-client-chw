@@ -1,9 +1,11 @@
 package org.smartregister.chw.fragment;
 
 import android.view.View;
+import androidx.appcompat.widget.Toolbar;
 
 import org.smartregister.chw.R;
 import org.smartregister.chw.contract.GeRegisterFragmentContract;
+import org.smartregister.chw.core.custom_views.NavigationMenu;
 import org.smartregister.chw.model.GeRegisterFragmentModel;
 import org.smartregister.chw.presenter.GeRegisterFragmentPresenter;
 import org.smartregister.chw.provider.OpdRegisterProvider;
@@ -54,11 +56,12 @@ public class GeRegisterFragment extends BaseRegisterFragment {
         View qrCode = view.findViewById(R.id.scanQrCode);
         qrCode.setVisibility(View.GONE);
 
-        view.findViewById(R.id.left_menu).setVisibility(View.VISIBLE);
+//        view.findViewById(R.id.left_menu).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.left_menu).setVisibility(View.GONE);
         view.findViewById(R.id.opensrp_logo_image_view).setVisibility(View.GONE);
 //        view.findViewById(R.id.txt_title_label).setVisibility(View.VISIBLE);
 
-
+//        Simple Example to do Java Casting
 //        int x =6;
 //        float z = (float)x;
 
@@ -73,6 +76,14 @@ public class GeRegisterFragment extends BaseRegisterFragment {
 //        txt.setText(R.string.menu_ge);
 
 //        ((CustomFontTextView)view.findViewById(R.id.txt_title_label)).setText(R.string.menu_ge);
+
+
+        Toolbar toolbar = view.findViewById(R.id.register_toolbar);
+
+
+
+        NavigationMenu.getInstance(getActivity(),null,toolbar);
+
 
     }
 
