@@ -163,6 +163,9 @@ public class ChwApplication extends CoreChwApplication {
         return commonFtsObject;
     }
 
+
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -181,7 +184,8 @@ public class ChwApplication extends CoreChwApplication {
                 getRegisteredActivities(), flavor.hasP2P());
 
         if (BuildConfig.DEBUG) {
-            Timber.plant(new Timber.DebugTree());
+//            It brings red line
+//            Timber.plant(new Timber.DebugTree());
         } else {
             Timber.plant(new CrashlyticsTree(ChwApplication.getInstance().getContext().allSharedPreferences().fetchRegisteredANM()));
         }
@@ -393,9 +397,11 @@ public class ChwApplication extends CoreChwApplication {
         registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.MOTHER_CHAMPION_ACTIVITY, MotherChampionRegisterActivity.class);
         registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.AGYW_REGISTER_ACTIVITY, AgywRegisterActivity.class);
 
-        //Add new Register Activity
+        //Add new Activity i.e Register Activity
         registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.GE_REGISTER_ACTIVITY, GeRegisterActivity.class);
+
         registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.MIMI_REGISTER_ACTIVITY, MimiRegisterActivity.class);
+
         return registeredActivities;
     }
 
