@@ -1,16 +1,18 @@
 package org.smartregister.chw.model;
 
 import org.smartregister.chw.contract.GeRegisterFragmentContract;
+import org.smartregister.chw.core.utils.CoreConstants;
 
 public class GeRegisterFragmentModel implements GeRegisterFragmentContract.Model {
     @Override
     public String getMainCondition() {
-        return "gender='Female'";
+        return "is_closed=0";
     }
 
     @Override
     public String getTablename() {
-        return "ec_family_member";
+        return "ec_gender_equality";
+//        return CoreConstants.TABLE_NAME.FAMILY_MEMBER;
     }
 
     @Override
@@ -20,7 +22,11 @@ public class GeRegisterFragmentModel implements GeRegisterFragmentContract.Model
 
     @Override
     public String getMainSelect(String mainCondition) {
-        return "SELECT id as _id, *  FROM " +getTablename()+ " WHERE " +mainCondition;
+        return "SELECT efm.id as _id, efm.*, ege.*, fam.village_town FROM " +getTablename()+ " efm " +
+                "INNER JOIN " +CoreConstants.TABLE_NAME.FAMILY_MEMBER+  " ege " +
+                "ON efm.base_entity_id = ege.base_entity_id " +
+                "INNER JOIN "+CoreConstants.TABLE_NAME.FAMILY+ " fam " +
+                "ON ege.relational_id = fam.base_entity_id " +"WHERE efm." + mainCondition;
     }
 
     @Override
