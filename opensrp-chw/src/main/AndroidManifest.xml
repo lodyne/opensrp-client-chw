@@ -30,6 +30,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--  Add JsonFormActivity - used to load json form with one step  -->
+        <activity
+            android:name="com.vijay.jsonwizard.activities.JsonFormActivity"
+            android:theme="@style/ChwTheme.NoActionBar" />
         <activity
             android:name=".activity.TunzaRegisterActivity"
             android:theme="@style/ChwTheme.NoActionBar" />
@@ -38,6 +42,9 @@
             android:theme="@style/ChwTheme.NoActionBar" />
         <activity
             android:name=".activity.GeRegisterActivity"
+            android:theme="@style/ChwTheme.NoActionBar" />
+        <activity
+            android:name=".activity.GeProfileActivity"
             android:theme="@style/ChwTheme.NoActionBar" />
         <activity
             android:name=".activity.KvpPrEPRegisterActivity"
