@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Menu;
+import android.widget.Toast;
 
 import androidx.viewpager.widget.ViewPager;
 
@@ -63,6 +64,17 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
         menu.findItem(R.id.action_sick_child_follow_up).setVisible(false);
         menu.findItem(R.id.action_malaria_diagnosis).setVisible(false);
         menu.findItem(R.id.action_remove_member).setVisible(false);
+
+//        The way to get date of birth and declare their variables
+        String dateOfBirth = Utils.getValue(commonPersonObject.getColumnmaps(), DBConstants.KEY.DOB, false);
+        int clientAge = Utils.getAgeFromDate(dateOfBirth);
+
+        if (gender.equalsIgnoreCase("female") && clientAge>=15){
+            menu.findItem(R.id.action_ge_registration).setVisible(true);
+        }
+        else {
+            menu.findItem(R.id.action_location_info).setVisible(false);
+        }
 
         AllSharedPreferences allSharedPreferences = org.smartregister.util.Utils.getAllSharedPreferences();
         SharedPreferences preferences = allSharedPreferences.getPreferences();
@@ -283,6 +295,19 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
     @Override
     protected void startGbvRegistration() {
         //TOBE Implementented
+    }
+
+    @Override
+    public void startGeEnrollment() {
+//        Use Toast to print logs/messages - Toast is Android feature appears as dialog
+//        Android Toast can be used to display information for the short period of time.
+//        A toast contains message to be displayed quickly and disappears after sometime.
+
+        Toast.makeText(this,"The Start of Enrollment:GeEnrollment = "+baseEntityId,Toast.LENGTH_LONG).show();
+
+//        Call method launchGeEnrollment
+        GeRegisterActivity.launchGeEnrollment(baseEntityId,this);
+
     }
 
     @Override
