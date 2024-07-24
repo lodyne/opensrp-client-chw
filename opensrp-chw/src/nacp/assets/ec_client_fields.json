@@ -1211,7 +1211,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "respiratory_rate"
+            "conceptversion": "respiratory_rate"
           }
         },
         {
@@ -1512,7 +1512,7 @@
         },
         {
           "column_name": "delivery_place",
-          "type": "Event",
+          "type": "Eversionvent",
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "delivery_place"
@@ -5894,6 +5894,41 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "number_aired_messages_broadcasted"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_gender_equality",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "consent_given",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ge_enrollment"
+          }
+        },
+        {
+          "column_name": "date_of_enrollment",
+          "type": "Event",
+          "json_mapping": {
+            "fields": "obs.fieldCode",
+            "concept": "date_of_enrollment"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
           }
         }
       ]
