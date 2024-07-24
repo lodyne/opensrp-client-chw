@@ -363,6 +363,8 @@
     <string name="doses_needed">Doses Needed</string>
     <string name="community_activity">My Community Activity</string>
     <string name="children">Children</string>
+
+    <!--    Add new strings-->
     <string name="menu_ge">Gender Equality</string>
     <string name="menu_new_app">MIMI APP</string>
 
