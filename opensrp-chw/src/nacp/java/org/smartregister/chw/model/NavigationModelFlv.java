@@ -49,10 +49,10 @@ public class NavigationModelFlv implements NavigationModel.Flavor {
             NavigationOption op22 = new NavigationOption(R.mipmap.sidemenu_updates, R.mipmap.sidemenu_updates_active, R.string.sbc_monthly_social_media_report, CoreConstants.DrawerMenu.SBC_MONTHLY_SOCIAL_MEDIA_REPORT, 0);
 
 //            Add new Navigation menu called Gender Equality
-            NavigationOption op23 = new NavigationOption(R.mipmap.sidemenu_updates, R.mipmap.sidemenu_updates_active, R.string.menu_ge, CoreConstants.DrawerMenu.GE,0); // Add Constants in opensrp-client-chw-core
+            NavigationOption op23 = new NavigationOption(R.mipmap.sidemenu_updates, R.mipmap.sidemenu_updates_active, R.string.menu_ge, CoreConstants.DrawerMenu.GE, 0); // Add Constants in opensrp-client-chw-core
 
 //            Add Navigation menu called Mimi
-            NavigationOption newApp = new NavigationOption(R.mipmap.sidemenu_updates, R.mipmap.sidemenu_updates_active,R.string.menu_new_app,CoreConstants.DrawerMenu.MIMI, 0);
+            NavigationOption newApp = new NavigationOption(R.mipmap.sidemenu_updates, R.mipmap.sidemenu_updates_active, R.string.menu_new_app, CoreConstants.DrawerMenu.MIMI, 0);
 
             AllSharedPreferences allSharedPreferences = Utils.getAllSharedPreferences();
             SharedPreferences preferences = allSharedPreferences.getPreferences();
@@ -88,7 +88,7 @@ public class NavigationModelFlv implements NavigationModel.Flavor {
                         }
                         if (ChwApplication.getApplicationFlavor().hasMalaria()) {
                             navigationOptions.add(op7);
-                        }
+           navigationOptions.add(newApp);                 }
                         if (ChwApplication.getApplicationFlavor().hasSbc()) {
                             navigationOptions.add(op22);
                             navigationOptions.add(op21);
@@ -131,3 +131,4 @@ public class NavigationModelFlv implements NavigationModel.Flavor {
         return navigationOptions;
     }
 }
+
