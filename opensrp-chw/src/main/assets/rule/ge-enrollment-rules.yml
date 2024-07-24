@@ -1,0 +1,6 @@
+---
+name: step1_date_of_enrollment
+description: only clients that have been registered
+condition: "step1_ge_enrollment=='yes'"
+actions:
+  - "isRelevant = true"
