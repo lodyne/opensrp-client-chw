@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "Test",
+  "encounter_type": "GE Services",
   "entity_id": "",
   "relational_id": "",
   "validate_on_submit": true,
@@ -57,7 +57,7 @@
     "title": "Record GE Individual Service Details",
     "fields": [
       {
-        "key": "GE_Service_Type",
+        "key": "ge_service_type",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -65,17 +65,17 @@
         "label": "Select GE Service Type",
         "options": [
           {
-            "key": "Legal_Aid_Support",
+            "key": "legal_aid_support",
             "text": "Legal Aid Support",
             "value": true
           },
           {
-            "key": "small_scale_entreprenuers",
-            "text": "Small Scale Entreprenuers Registration",
+            "key": "small_scale_entrepreneurs",
+            "text": "Small Scale Entrepreneurs Registration",
             "value": true
           },
           {
-            "key": "Household_Sensitized_on_GE_Issues",
+            "key": "household_sensitized_on_ge_issues",
             "text": "Household Sensitized on GE Issues",
             "value": true
           }
@@ -103,168 +103,7 @@
         }
       },
       {
-        "key": "user_first_name",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "",
-        "openmrs_entity_id": "",
-        "type": "edit_text",
-        "hint": "First name",
-        "edit_type": "name",
-        "v_required": {
-          "value": "true",
-          "err": "Please enter the first name"
-        },
-        "v_regex": {
-          "value": "[A-Za-z\\s\\.\\-]*",
-          "err": "Please enter a valid name"
-        },
-
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "individual_ge_form.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "user_middle_name",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "",
-        "openmrs_entity_id": "",
-        "type": "edit_text",
-        "hint": "Middle name",
-        "edit_type": "name",
-        "v_required": {
-          "value": "true",
-          "err": "Please enter the middle name"
-        },
-        "v_regex": {
-          "value": "[A-Za-z\\s\\.\\-]*",
-          "err": "Please enter a valid name"
-        },
-
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "individual_ge_form.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "user_surname",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "",
-        "openmrs_entity_id": "",
-        "type": "edit_text",
-        "hint": "Surname",
-        "edit_type": "name",
-        "v_required": {
-          "value": "true",
-          "err": "Please enter the surname"
-        },
-        "v_regex": {
-          "value": "[A-Za-z\\s\\.\\-]*",
-          "err": "Please enter a valid name"
-        },
-
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "individual_ge_form.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "DOB",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "",
-        "openmrs_entity_id": "",
-        "type": "date_picker",
-        "hint": "Date of Birth",
-        "edit_type": "number",
-        "duration": {
-          "label": "Age"
-        },
-        "min_date": "today-5y",
-        "max_date": "today",
-        "v_required": {
-          "value": "true",
-          "err": "Please enter date of birth"
-        },
-
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "individual_ge_form.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "Sex",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "",
-        "openmrs_entity_id": "",
-        "type": "native_radio",
-        "label": "Please select gender",
-        "label_text_style": "bold",
-        "text_color": "#000000",
-        "label_info_text": "You can select every thing you want.",
-        "label_info_title": "Gender selection",
-        "options": [
-          {
-            "key": "male",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "",
-            "openmrs_entity_id": "",
-            "text": "Male"
-          },
-          {
-            "key": "female",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "",
-            "openmrs_entity_id": "",
-            "text": "Female"
-          }
-        ],
-
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "individual_ge_form.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "Village",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "",
-        "openmrs_entity_id": "",
-        "type": "edit_text",
-        "hint": "Village name",
-        "edit_type": "name",
-        "v_required": {
-          "value": "true",
-          "err": "Please enter the village name"
-        },
-        "v_regex": {
-          "value": "[A-Za-z\\s\\.\\-]*",
-          "err": "Please enter a valid village name"
-        },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "individual_ge_form.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "GBV_elements",
+        "key": "gbv_elements",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -299,7 +138,7 @@
         }
       },
       {
-        "key": "Legal_services",
+        "key": "legal_aid_support",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -387,7 +226,7 @@
         }
       },
       {
-        "key": "Legal_services_provided",
+        "key": "legal_services_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -425,7 +264,7 @@
         }
       },
       {
-        "key": "Referral_destination",
+        "key": "referral_destination",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -465,7 +304,7 @@
         }
       },
       {
-        "key": "Property_ownership",
+        "key": "property_ownership",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -500,7 +339,7 @@
         }
       },
       {
-        "key": "Type_of_property_owned",
+        "key": "type_of_property_owned",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "161641AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -512,25 +351,25 @@
         "hint": "Select the type of property that the client owns?",
         "options": [
           {
-            "key": "Land",
+            "key": "land",
             "text": "Land",
             "value": false,
             "openmrs_choice_id": ""
           },
           {
-            "key": "Housing",
+            "key": "housing",
             "text": "Housing",
             "value": false,
             "openmrs_choice_id": ""
           },
           {
-            "key": "Vehicles",
+            "key": "vehicles",
             "text": "Vehicles",
             "value": false,
             "openmrs_choice_id": ""
           },
           {
-            "key": "Livestock",
+            "key": "livestock",
             "text": "Livestock",
             "value": false,
             "openmrs_choice_id": ""
