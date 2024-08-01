@@ -4,6 +4,7 @@ import org.smartregister.chw.contract.MimiRegisterFragmentContract;
 import org.smartregister.view.contract.BaseRegisterFragmentContract;
 
 public class MimiRegisterFragmentModel implements MimiRegisterFragmentContract.Model {
+
     @Override
     public String getMainCondition() {
         return null;

@@ -5,12 +5,14 @@ import android.content.Intent;
 import androidx.fragment.app.Fragment;
 
 import org.json.JSONObject;
+import org.smartregister.chw.fragment.MimiRegisterFragment;
 import org.smartregister.view.activity.BaseRegisterActivity;
 import org.smartregister.view.fragment.BaseRegisterFragment;
 
 import java.util.List;
 
 public class MimiRegisterActivity extends BaseRegisterActivity {
+
     @Override
     protected void initializePresenter() {
 
@@ -18,7 +20,7 @@ public class MimiRegisterActivity extends BaseRegisterActivity {
 
     @Override
     protected BaseRegisterFragment getRegisterFragment() {
-        return null;
+        return new MimiRegisterFragment();
     }
 
     @Override

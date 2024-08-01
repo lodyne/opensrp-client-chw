@@ -15,8 +15,5 @@ public interface GeRegisterFragmentContract extends BaseRegisterFragmentContract
         public String getMainSelect(String mainCondition);
 
         public String getCountSelect(String mainCondition);
-
-
-
     }
 }

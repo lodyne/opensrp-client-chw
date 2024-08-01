@@ -7,6 +7,7 @@ import org.smartregister.view.fragment.BaseRegisterFragment;
 import java.util.HashMap;
 
 public class MimiRegisterFragment extends BaseRegisterFragment {
+
     @Override
     protected void initializePresenter() {
 
