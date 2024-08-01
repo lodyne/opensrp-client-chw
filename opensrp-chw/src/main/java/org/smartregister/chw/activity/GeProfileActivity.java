@@ -45,7 +45,6 @@ public class GeProfileActivity extends BaseProfileActivity {
     }
 
 
-
     @Override
     protected void setupViews() {
         super.setupViews();
@@ -82,9 +81,13 @@ public class GeProfileActivity extends BaseProfileActivity {
             idTV.setText(Id);
 
         }
+//        Access image
         avatorIV.setImageDrawable(getResources().getDrawable(R.mipmap.ic_member));
+
+//        Set Text in the Button - use strings resource
         profileButton.setText("Record Provision of GE Services");
 
+//        Set listener on button once user clicks
         profileButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -98,10 +101,6 @@ public class GeProfileActivity extends BaseProfileActivity {
         );
     }
 
-    @Override
-    public void startMicroFormActivity(String formName, String entityId, String metaData) {
-        super.startMicroFormActivity(formName, entityId, metaData);
-    }
 
     @SuppressLint("TimberArgCount")
     @Override
@@ -112,8 +111,6 @@ public class GeProfileActivity extends BaseProfileActivity {
 //              Convert JSON form to JSON object
             FormUtils formUtils = new FormUtils();
             JSONObject jsonObject =formUtils.getFormJsonFromRepositoryOrAssets(this,formName);
-
-            Timber.d("MWAMBAAAA",jsonObject);
 
 //              Link json Object to the json form using base_entity_id Key
             jsonObject.put("entity_id",clientsInfo.getColumnmaps().get("base_entity_id"));
@@ -144,13 +141,11 @@ public class GeProfileActivity extends BaseProfileActivity {
 //           Receive the data of type String using getStringExtra
             String filledForm = intent.getStringExtra("json");
 
-            Timber.d("SHOW FILLED FORM "+filledForm );
-
 //            Access some data such as userid, teamid that are binded to user, from shared_prefs
             AllSharedPreferences allSharedPreferences = Utils.getAllSharedPreferences();
 
 //           Change the received filled form into an Event
-            Event event = JsonFormUtils.processJsonForm(allSharedPreferences,filledForm,""); // add table name
+            Event event = JsonFormUtils.processJsonForm(allSharedPreferences,filledForm,"ec_gender_services"); // add table name
 
 
 //            Use Gson library by Google to convert event to Json string
