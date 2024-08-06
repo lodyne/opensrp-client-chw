@@ -396,6 +396,11 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
     }
 
     @Override
+    protected void startBloodEnrollment() {
+
+    }
+
+    @Override
     protected void startKvpPrEPRegistration() {
         String gender = getClientGender(baseEntityId);
         String dob = Utils.getValue(commonPersonObject.getColumnmaps(), DBConstants.KEY.DOB, false);

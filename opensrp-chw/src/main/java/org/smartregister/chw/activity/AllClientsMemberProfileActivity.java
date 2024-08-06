@@ -73,7 +73,7 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
             menu.findItem(R.id.action_ge_registration).setVisible(true);
         }
         else {
-            menu.findItem(R.id.action_location_info).setVisible(false);
+            menu.findItem(R.id.action_ge_registration).setVisible(false);
         }
 
         AllSharedPreferences allSharedPreferences = org.smartregister.util.Utils.getAllSharedPreferences();
@@ -307,6 +307,11 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
 
 //        Call method launchGeEnrollment
         GeRegisterActivity.launchGeEnrollment(baseEntityId,this);
+
+    }
+
+    @Override
+    protected void startBloodEnrollment() {
 
     }
 

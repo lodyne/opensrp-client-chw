@@ -1,4 +1,11 @@
 package org.smartregister.chw.presenter;
 
-public class GeProfilePresenter {
+import org.smartregister.chw.core.presenter.CoreGeProfilePresenter;
+
+public class GeProfilePresenter extends CoreGeProfilePresenter {
+
+    @Override
+    public void convertDataToEvent(String data) {
+        super.convertDataToEvent(data);
+    }
 }

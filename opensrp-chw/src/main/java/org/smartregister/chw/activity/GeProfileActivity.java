@@ -3,6 +3,7 @@ package org.smartregister.chw.activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.viewpager.widget.ViewPager;
@@ -115,7 +116,6 @@ public class GeProfileActivity extends BaseProfileActivity {
 //              Link json Object to the json form using base_entity_id Key
             jsonObject.put("entity_id",clientsInfo.getColumnmaps().get("base_entity_id"));
 
-
 //              Launch form from parent Activity using Intent
             Intent intent = new Intent(GeProfileActivity.this, JsonFormActivity.class);
 
@@ -133,6 +133,7 @@ public class GeProfileActivity extends BaseProfileActivity {
 
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
@@ -146,7 +147,6 @@ public class GeProfileActivity extends BaseProfileActivity {
 
 //           Change the received filled form into an Event
             Event event = JsonFormUtils.processJsonForm(allSharedPreferences,filledForm,"ec_gender_services"); // add table name
-
 
 //            Use Gson library by Google to convert event to Json string
             Gson gson = JsonFormUtils.gson;

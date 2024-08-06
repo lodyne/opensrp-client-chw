@@ -53,17 +53,17 @@ public class GeRegisterActivity extends BaseRegisterActivity {
     @Override
     public void startFormActivity(String formName, String entityId, String metadata) {
 
-//        Convert JSON form to JSON object
+//        Retrieve the JSON form file in a predefined location,
+//        such as the application's assets or a repository directory
+//        and parse it into a JSONObject
         try {
             JSONObject jsonObject =new FormUtils().getFormJsonFromRepositoryOrAssets(this,formName);
 
-//        Link json Object to the json form using entity_id Key
+//        Link JSON  Object to the JSON form using entity_id Key
             jsonObject.put("entity_id", entityId);
 
-//          Call startFormActivity that include the launched form
+//        Call startFormActivity that include the launched form
             startFormActivity(jsonObject);
-
-
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -75,7 +75,7 @@ public class GeRegisterActivity extends BaseRegisterActivity {
 //        Launch form from parent Activity using Intent
         Intent intent = new Intent(this, JsonFormActivity.class);
 
-//        Convert json form to String
+//        Convert JSON object to JSON String
         intent.putExtra("json",jsonObject.toString());
 
 //        startActivity(intent);
@@ -96,9 +96,8 @@ public class GeRegisterActivity extends BaseRegisterActivity {
 //            Access some data such as userid, teamid that are binded to user, from shared_prefs
             AllSharedPreferences allSharedPreferences = Utils.getAllSharedPreferences();
 
-//           Change the received filled form into an Event
+//           Change the received filled form(String data) into an Event
             Event event = JsonFormUtils.processJsonForm(allSharedPreferences,filledForm,"ec_gender_equality"); // add table name
-
 
 //            Use Gson library by Google to convert event to Json string
             Gson gson = JsonFormUtils.gson;

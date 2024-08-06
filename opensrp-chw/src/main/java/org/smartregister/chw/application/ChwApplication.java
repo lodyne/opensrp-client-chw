@@ -29,6 +29,7 @@ import org.smartregister.chw.BuildConfig;
 import org.smartregister.chw.activity.AgywRegisterActivity;
 import org.smartregister.chw.activity.AllClientsRegisterActivity;
 import org.smartregister.chw.activity.AncRegisterActivity;
+import org.smartregister.chw.activity.BloodRegisterActivity;
 import org.smartregister.chw.activity.CdpRegisterActivity;
 import org.smartregister.chw.activity.ChildRegisterActivity;
 import org.smartregister.chw.activity.FamilyProfileActivity;
@@ -184,7 +185,7 @@ public class ChwApplication extends CoreChwApplication {
                 getRegisteredActivities(), flavor.hasP2P());
 
         if (BuildConfig.DEBUG) {
-//            It brings red line
+//            It shows red line
 //            Timber.plant(new Timber.DebugTree());
         } else {
             Timber.plant(new CrashlyticsTree(ChwApplication.getInstance().getContext().allSharedPreferences().fetchRegisteredANM()));
@@ -399,8 +400,10 @@ public class ChwApplication extends CoreChwApplication {
 
         //Add new Activity i.e Register Activity
         registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.GE_REGISTER_ACTIVITY, GeRegisterActivity.class);
-
+//       Register new Activity called Mimi
         registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.MIMI_REGISTER_ACTIVITY, MimiRegisterActivity.class);
+//        Register new Activity called Blood
+        registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.BLOOD_REGISTER_ACTIVITY, BloodRegisterActivity.class);
 
         return registeredActivities;
     }

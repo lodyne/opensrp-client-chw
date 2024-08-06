@@ -33,12 +33,10 @@ public class GeRegisterFragmentPresenter implements BaseRegisterFragmentContract
     public void startSync() {
 
     }
-
     @Override
     public void searchGlobally(String s) {
 
     }
-
     public String getMainCondition(){
         return model.getMainCondition();
     }
@@ -48,15 +46,11 @@ public class GeRegisterFragmentPresenter implements BaseRegisterFragmentContract
     public String getDefaultSortQuery(){
         return model.getDefaultSortQuery();
     }
-
     public String getMainSelect(String mainCondition){
         return model.getMainSelect(mainCondition);
 
     }
-
     public String getCountSelect(String mainCondition){
         return model.getCountSelect(mainCondition);
     }
-
-
 }
