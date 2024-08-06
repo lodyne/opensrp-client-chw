@@ -367,6 +367,7 @@
     <!--    Add new strings-->
     <string name="menu_ge">Gender Equality</string>
     <string name="menu_new_app">MIMI APP</string>
+    <string name="menu_blood">BLOOD BANK</string>
 
     <string name="forgot_pin">Forgot pin?</string>
     <string name="use_your_password"> Use your password?</string>
