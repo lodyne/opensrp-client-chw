@@ -53,6 +53,8 @@ public class NavigationModelFlv implements NavigationModel.Flavor {
 
 //            Add Navigation menu called Mimi
             NavigationOption newApp = new NavigationOption(R.mipmap.sidemenu_updates, R.mipmap.sidemenu_updates_active, R.string.menu_new_app, CoreConstants.DrawerMenu.MIMI, 0);
+//            Add Navigation Drawer Menu called Blood
+            NavigationOption blood = new NavigationOption(R.mipmap.sidemenu_updates, R.mipmap.sidemenu_updates_active, R.string.menu_blood, CoreConstants.DrawerMenu.BLOOD, 0);
 
             AllSharedPreferences allSharedPreferences = Utils.getAllSharedPreferences();
             SharedPreferences preferences = allSharedPreferences.getPreferences();
@@ -126,6 +128,7 @@ public class NavigationModelFlv implements NavigationModel.Flavor {
             }
             navigationOptions.add(op23);
             navigationOptions.add(newApp);
+            navigationOptions.add(blood);
         }
 
         return navigationOptions;
