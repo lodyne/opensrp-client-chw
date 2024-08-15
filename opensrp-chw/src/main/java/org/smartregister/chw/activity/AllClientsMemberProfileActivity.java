@@ -306,7 +306,8 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
         Toast.makeText(this,"The Start of Enrollment:GeEnrollment = "+baseEntityId,Toast.LENGTH_LONG).show();
 
 //        Call method launchGeEnrollment
-        GeRegisterActivity.launchGeEnrollment(baseEntityId,this);
+//        GeRegisterActivity.launchGeEnrollment(baseEntityId,this);
+        GeRegisterActivity.launchGeEnrollment(baseEntityId,AllClientsMemberProfileActivity.this);
 
     }
 

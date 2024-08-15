@@ -18,20 +18,31 @@ import org.json.JSONObject;
 import org.smartregister.chw.R;
 import org.smartregister.chw.anc.util.JsonFormUtils;
 import org.smartregister.chw.anc.util.NCUtils;
+import org.smartregister.chw.contract.GeRegisterFragmentContract;
+import org.smartregister.chw.core.contract.CoreGeProfileContract;
+import org.smartregister.chw.fragment.GeRegisterFragment;
+import org.smartregister.chw.model.GeProfileModel;
+import org.smartregister.chw.model.GeRegisterFragmentModel;
+import org.smartregister.chw.presenter.GeProfilePresenter;
+import org.smartregister.chw.presenter.GeRegisterFragmentPresenter;
 import org.smartregister.chw.util.Utils;
 import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.repository.AllSharedPreferences;
 import org.smartregister.view.activity.BaseProfileActivity;
+import org.smartregister.view.contract.BaseProfileContract;
 import org.smartregister.view.customcontrols.CustomFontTextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import timber.log.Timber;
 
-public class GeProfileActivity extends BaseProfileActivity {
-    CommonPersonObjectClient clientsInfo;
+public class GeProfileActivity extends BaseProfileActivity implements CoreGeProfileContract.View {
+    CommonPersonObjectClient commonPersonObjectClient;
+    private GeProfilePresenter presenter;
     @Override
     protected void initializePresenter() {
+        GeProfileModel geProfileModel = new GeProfileModel();
+        presenter = new GeProfilePresenter(geProfileModel);
 
     }
 
@@ -46,13 +57,14 @@ public class GeProfileActivity extends BaseProfileActivity {
     }
 
 
+    @SuppressLint("TimberArgCount")
     @Override
     protected void setupViews() {
         super.setupViews();
 
         Intent intent = getIntent();
 
-        clientsInfo = (CommonPersonObjectClient) intent.getSerializableExtra("client_info");
+        commonPersonObjectClient = (CommonPersonObjectClient) intent.getSerializableExtra("client_info");
 
         CircleImageView avatorIV = findViewById(R.id.imageview_profile);
         CustomFontTextView profilenameTV = findViewById(R.id.textview_name);
@@ -61,27 +73,15 @@ public class GeProfileActivity extends BaseProfileActivity {
         CustomFontTextView idTV = findViewById(R.id.textview_detail_three);
         Button profileButton = findViewById(R.id.btn_profile_registration_info);
 
-        if (clientsInfo != null) {
-
-
-            String firstname = clientsInfo.getColumnmaps().get("first_name");
-            String middlename = clientsInfo.getColumnmaps().get("middle_name");
-            String lastname = clientsInfo.getColumnmaps().get("last_name");
-            Integer age = Utils.getAgeFromDate(clientsInfo.getColumnmaps().get("dob"));
-            String gender = clientsInfo.getColumnmaps().get("gender");
-            String location = clientsInfo.getColumnmaps().get("village_town");
-            String uniqueID = clientsInfo.getColumnmaps().get("unique_id");
-
-            String fullname = firstname + " " + middlename + " " + lastname + " , " + age;
-            String Id = "ID: " + uniqueID;
-
-
-            profilenameTV.setText(fullname);
-            genderTV.setText(gender);
-            locationTV.setText(location);
-            idTV.setText(Id);
-
+        CoreGeProfileContract.ClientInfo clientInfo = presenter.getClientsInfo(commonPersonObjectClient);
+        Timber.d("message", clientInfo);
+        if (clientInfo != null) {
+            profilenameTV.setText(clientInfo.getFullname());
+            genderTV.setText(clientInfo.gender);
+            locationTV.setText(clientInfo.location);
+            idTV.setText(clientInfo.getUniqueId());
         }
+
 //        Access image
         avatorIV.setImageDrawable(getResources().getDrawable(R.mipmap.ic_member));
 
@@ -114,18 +114,10 @@ public class GeProfileActivity extends BaseProfileActivity {
             JSONObject jsonObject =formUtils.getFormJsonFromRepositoryOrAssets(this,formName);
 
 //              Link json Object to the json form using base_entity_id Key
-            jsonObject.put("entity_id",clientsInfo.getColumnmaps().get("base_entity_id"));
+            jsonObject.put("entity_id",commonPersonObjectClient.getColumnmaps().get("base_entity_id"));
 
-//              Launch form from parent Activity using Intent
-            Intent intent = new Intent(GeProfileActivity.this, JsonFormActivity.class);
-
-//              Convert json form to String
-            jsonObject.toString();
-            intent.putExtra("json",jsonObject.toString());
-
-//               Pass the requestCode and  Start the JsonFormActivity and wait for a result
-
-            startActivityForResult(intent, 700);
+//            Call startFormActivity method
+            startFormActivity(jsonObject);
 
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -142,29 +134,23 @@ public class GeProfileActivity extends BaseProfileActivity {
 //           Receive the data of type String using getStringExtra
             String filledForm = intent.getStringExtra("json");
 
-//            Access some data such as userid, teamid that are binded to user, from shared_prefs
-            AllSharedPreferences allSharedPreferences = Utils.getAllSharedPreferences();
+            presenter.convertDataToEvent(filledForm);
 
-//           Change the received filled form into an Event
-            Event event = JsonFormUtils.processJsonForm(allSharedPreferences,filledForm,"ec_gender_services"); // add table name
-
-//            Use Gson library by Google to convert event to Json string
-            Gson gson = JsonFormUtils.gson;
-            String jsonString = gson.toJson(event);
-
-            try {
-
-//            Convert Json String into Json object
-                JSONObject jsonObject = new JSONObject(jsonString);
-
-//           Save and process the created Event
-                NCUtils.processEvent(event.getBaseEntityId(), jsonObject);
-
-            } catch (Exception e) {
-                Timber.e(e);
-                throw new RuntimeException(e);
-            }
         }
+    }
+
+    @Override
+    public void startFormActivity(JSONObject jsonObject) {
+//        Launch form from parent Activity using Intent
+        Intent intent = new Intent(GeProfileActivity.this, JsonFormActivity.class);
+
+//        Convert json form to String
+        intent.putExtra("json",jsonObject.toString());
+
+//        Pass the requestCode and  Start the JsonFormActivity and wait for a result
+
+        startActivityForResult(intent, 700);
+
     }
 }
 

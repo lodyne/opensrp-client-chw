@@ -138,7 +138,7 @@
         }
       },
       {
-        "key": "legal_aid_support",
+        "key": "legal_services_types",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -724,5 +724,4 @@
       }
     ]
   }
-
 }

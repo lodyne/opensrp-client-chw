@@ -6,93 +6,44 @@ actions:
   - "isRelevant = true"
 
 ---
-name: step1_user_first_name
-description: only clients that have been registered
-condition: "step1_ge_service_type=='legal_aid_support'||step1_ge_service_type=='small_scale_entrepreneurs'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_user_middle_name
-description: only clients that have been registered
-condition: "step1_ge_service_type=='legal_aid_support'||step1_ge_service_type=='small_scale_entrepreneurs'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_user_surname
-description: only clients that have been registered
-condition: "step1_ge_service_type=='legal_aid_support'||step1_ge_service_type=='small_scale_entrepreneurs'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_user_surname
-description: only clients that have been registered
-condition: "step1_ge_service_type=='legal_aid_support'||step1_ge_service_type=='small_scale_entrepreneurs'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_dob
-description: only clients that have been registered
-condition: "step1_ge_service_type=='legal_aid_support'||step1_ge_service_type=='small_scale_entrepreneurs'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_sex
-description: only clients that have been registered
-condition: "step1_ge_service_type=='legal_aid_support'||step1_ge_service_type=='small_scale_entrepreneurs'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_village
-description: only clients that have been registered
-condition: "step1_ge_service_type=='legal_aid_support'||step1_ge_service_type=='small_scale_entrepreneurs'"
-actions:
-  - "isRelevant = true"
-
----
 name: step1_gbv_elements
 description: only clients that have been registered
-condition: "step1_ge_service_type == 'legal_aid_support'"
+condition: "step1_ge_service_type=='legal_aid_support'"
 actions:
   - "isRelevant = true"
 
 ---
-name: step1_legal_services_provided
+name: step1_legal_services_types
 description: only clients that have been registered
-condition: "step1_ge_service_type=='legal_aid_support'"
+condition: "step1_gbv_elements=='yes'"
 actions:
   - "isRelevant = true"
 
 ---
 name: step1_other_options
 description: only clients that have been registered
-condition: "step1_Legal_services=='others_specify'"
+condition: "step1_legal_services_types=='others_specify'"
 actions:
   - "isRelevant = true"
 
 ---
 name: step1_legal_services_provided
-description: only clients that have been registered
+description: all legal services provided
 condition: "step1_ge_service_type=='legal_aid_support'"
 actions:
   - "isRelevant = true"
 
 ---
 name: step1_referral_destination
-description: only clients that have been registered
-condition: "step1_ge_service_type=='legal_aid_support'"
+description: choose referral
+condition: "step1_legal_services_provided.equals('referral')"
 actions:
   - "isRelevant = true"
 
 ---
 name: step1_other_referrals
-description: only clients that have been registered
-condition: "step1_Legal_services=='others_specify'"
+description: choose others
+condition: "step1_referral_destination.equals('Others (Total)')"
 actions:
   - "isRelevant = true"
 
@@ -106,7 +57,7 @@ actions:
 ---
 name: step1_type_of_property_owned
 description: choose referral
-condition: "step1_Property_ownership== 'yes'"
+condition: "step1_property_ownership== 'yes'"
 actions:
   - "isRelevant = true"
 
@@ -116,10 +67,46 @@ description: choose others
 condition: "step1_type_of_property_owned.contains('others_specify')"
 actions:
   - "isRelevant = true"
+
 ---
-name: step1_other_referrals
+name: step1_registered_client
+description: only clients that have been registered
+condition: "step1_ge_service_type=='small_scale_entrepreneurs'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_registration_area
+description: only clients that have been registered
+condition: "step1_registered_client == 'yes'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_registration_date
+description: only clients that have been registered
+condition: "step1_registered_client == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+
+name: step1_challenges_faced
+description: only clients that have been registered
+condition: "step1_registered_client=='no'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_other_challenges
 description: choose others
-condition: "step1_referral_destination.equals('Others (Total)')"
+condition: "step1_challenges_faced.contains('others_specify')"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_client_counselling
+description: only clients that have been registered
+condition: "step1_registered_client=='no'"
 actions:
   - "isRelevant = true"
 
@@ -148,62 +135,6 @@ actions:
 name: step1_followup_visit_date
 description: only clients that have been registered
 condition: "step1_sensitization_session == 'no'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_referral_destination
-description: choose referral
-condition: "step1_legal_services_provided.equals('referral')"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_registered_client
-description: only clients that have been registered
-condition: "step1_ge_service_type=='small_scale_entrepreneurs'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_challenges_faced
-description: only clients that have been registered
-condition: "step1_ge_service_type=='small_scale_entrepreneurs'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_client_counselling
-description: only clients that have been registered
-condition: "step1_ge_service_type=='small_scale_entrepreneurs'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_other_challenges
-description: choose others
-condition: "step1_challenges_faced.equals('others_specify')"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_registration_area
-description: only clients that have been registered
-condition: "step1_registered_client == 'yes'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_registration_date
-description: only clients that have been registered
-condition: "step1_registered_client == 'yes'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_followup_visit_date
-description: only clients that have been registered
-condition: "step1_sensitization_session.equals('no')"
 actions:
   - "isRelevant = true"
 
