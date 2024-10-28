@@ -34,7 +34,8 @@ public class GeRegisterFragment extends BaseRegisterFragment {
     }
     @Override
     protected void initializePresenter() {
-        GeRegisterFragmentContract.Model geRegisterFragmentModel = new GeRegisterFragmentModel();
+//        GeRegisterFragmentContract.Model geRegisterFragmentModel = new GeRegisterFragmentModel();
+        GeRegisterFragmentModel geRegisterFragmentModel = new GeRegisterFragmentModel();
         presenter = new GeRegisterFragmentPresenter(GeRegisterFragment.this,geRegisterFragmentModel);
 
     }
@@ -116,12 +117,13 @@ public class GeRegisterFragment extends BaseRegisterFragment {
 
     }
 
+
     @SuppressLint("TimberArgCount")
     @Override
     protected void onViewClicked(View view) {
 //        Access client object using CommonPersonObjectClient
         CommonPersonObjectClient client = (CommonPersonObjectClient) view.getTag(R.id.VIEW_CLIENT);
-
+        Timber.d("LETAAA INFOO WW",client);
         Intent intent = new Intent(getActivity(), GeProfileActivity.class);
 
         intent.putExtra("client_info", client);

@@ -2,18 +2,25 @@ package org.smartregister.chw.presenter;
 
 import org.smartregister.chw.contract.GeRegisterFragmentContract;
 import org.smartregister.chw.fragment.GeRegisterFragment;
+import org.smartregister.chw.model.GeRegisterFragmentModel;
 import org.smartregister.view.contract.BaseRegisterFragmentContract;
 
 public class GeRegisterFragmentPresenter implements BaseRegisterFragmentContract.Presenter {
 
 
-    private final GeRegisterFragmentContract.Model model;
+//    private final GeRegisterFragmentContract.Model model;
+    private final GeRegisterFragmentModel model;
     private final GeRegisterFragmentContract.View view;
 
-    public GeRegisterFragmentPresenter(GeRegisterFragmentContract.View view, GeRegisterFragmentContract.Model model) {
-        this.view = view;
+    public GeRegisterFragmentPresenter(GeRegisterFragmentContract.View view, GeRegisterFragmentModel model) {
         this.model = model;
+        this.view = view;
     }
+
+//    public GeRegisterFragmentPresenter(GeRegisterFragmentContract.View view, GeRegisterFragmentContract.Model model) {
+//        this.view = view;
+//        this.model = model;
+//    }
 
     @Override
     public void processViewConfigurations() {

@@ -391,7 +391,7 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
     }
 
     @Override
-    protected void startGeEnrollment() {
+    public void startGeEnrollment() {
 
     }
 

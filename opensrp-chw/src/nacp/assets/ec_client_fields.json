@@ -5934,7 +5934,7 @@
       ]
     },
     {
-      "name": "ec_gender_service",
+      "name": "ec_gender_services",
       "columns": [
         {
           "column_name": "base_entity_id",
@@ -5943,7 +5943,6 @@
             "field": "formSubmissionId"
           }
         },
-
         {
           "column_name": "entity_id",
           "type": "Event",

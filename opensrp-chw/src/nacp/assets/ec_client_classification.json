@@ -5,14 +5,768 @@
       "rule": {
         "type": "event",
         "fields": [
-
+          {
+            "field": "eventType",
+            "field_value": "Family Registration",
+            "creates_case": [
+              "ec_family"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Family Member Registration",
+            "creates_case": [
+              "ec_family_member"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Child Registration",
+            "creates_case": [
+              "ec_child",
+              "ec_family_member"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PNC Child Registration",
+            "creates_case": [
+              "ec_child",
+              "ec_family_member"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Malaria Follow-up Visit",
+            "creates_case": [
+              "ec_malaria_follow_up_visit"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "FP CBD Registration",
+            "creates_case": [
+              "ec_family_planning"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Update Family Registration",
+            "creates_case": [
+              "ec_family"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Update Family Member Registration",
+            "creates_case": [
+              "ec_family_member"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Update Child Registration",
+            "creates_case": [
+              "ec_child",
+              "ec_family_member"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Update Family Relations",
+            "creates_case": [
+              "ec_family"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Update Family Member Relations",
+            "creates_case": [
+              "ec_family_member"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Child Home Visit",
+            "creates_case": [
+              "ec_child",
+              "ec_child_activity"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Visit not done",
+            "creates_case": [
+              "ec_child",
+              "ec_child_activity"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Birth Certification",
+            "creates_case": [
+              "ec_child"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Observations Illness",
+            "creates_case": [
+              "ec_child"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Pregnancy Confirmation",
+            "creates_case": [
+              "ec_anc_register",
+              "ec_anc_log",
+              "ec_pregnancy_confirmation_updates"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Pregnancy Confirmation Dismissal",
+            "creates_case": [
+              "ec_pregnancy_confirmation_updates"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC Registration",
+            "creates_case": [
+              "ec_anc_register",
+              "ec_anc_log",
+              "ec_anc_hf_data"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC Followup Client Registration",
+            "creates_case": [
+              "ec_anc_register",
+              "ec_anc_hf_data",
+              "ec_anc_log"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC First Facility Visit",
+            "creates_case": [
+              "ec_anc_hf_data"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC Home Visit",
+            "creates_case": [
+              "ec_anc_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Malaria Confirmation",
+            "creates_case": [
+              "ec_malaria_confirmation"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ICCM Enrollment",
+            "creates_case": [
+              "ec_iccm_enrollment"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ICCM Services Visit",
+            "creates_case": [
+              "ec_iccm_service"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Pregnancy Outcome",
+            "closes_case": [
+              "ec_anc_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Pregnancy Outcome",
+            "creates_case": [
+              "ec_pregnancy_outcome"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Post Delivery Mother Management",
+            "closes_case": [
+              "ec_anc_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Post Delivery Mother Management",
+            "creates_case": [
+              "ec_pregnancy_outcome"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LD Child Registration",
+            "creates_case": [
+              "ec_child",
+              "ec_family_member"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PNC No Mother Registration",
+            "creates_case": [
+              "ec_child",
+              "ec_family_member"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Sick Child Referral",
+            "creates_case": [
+              "ec_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Sick Child Referral",
+            "creates_case": [
+              "ec_child_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC Referral",
+            "creates_case": [
+              "ec_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC Referral",
+            "creates_case": [
+              "ec_anc_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PNC Referral",
+            "creates_case": [
+              "ec_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PNC Referral",
+            "creates_case": [
+              "ec_pnc_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Referral Registration",
+            "creates_case": [
+              "ec_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Referral Followup Registration",
+            "creates_case": [
+              "ec_referral_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Family Planning Referral",
+            "creates_case": [
+              "ec_fp_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Malaria Referral",
+            "creates_case": [
+              "ec_malaria_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Malaria Referral",
+            "creates_case": [
+              "ec_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "FP Home Visit",
+            "creates_case": [
+              "ec_family_planning"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Close Referral",
+            "creates_case": [
+              "ec_close_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Sick Child Follow-up",
+            "creates_case": [
+              "ec_sick_child_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC Danger Signs Outcome",
+            "creates_case": [
+              "ec_anc_danger_signs_outcome"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PNC Danger Signs Outcome",
+            "creates_case": [
+              "ec_pnc_danger_signs_outcome"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Malaria Follow-up HF",
+            "creates_case": [
+              "ec_malaria_followup_hf"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Family Planning Update",
+            "creates_case": [
+              "ec_family_planning_update"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Referral Dismissal",
+            "creates_case": [
+              "ec_referral_dismissal"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Not Yet Done Referral",
+            "creates_case": [
+              "ec_not_yet_done_referral"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CBHS Registration",
+            "creates_case": [
+              "ec_hiv_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CBHS Close Visits",
+            "closes_case": [
+              "ec_cbhs_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CBHS Registration",
+            "creates_case": [
+              "ec_cbhs_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Update CBHS Registration",
+            "creates_case": [
+              "ec_hiv_register",
+              "ec_cbhs_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CBHS Followup",
+            "creates_case": [
+              "ec_hiv_register",
+              "ec_cbhs_register",
+              "ec_cbhs_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Tb Registration",
+            "creates_case": [
+              "ec_tb_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "TB Case Closure",
+            "creates_case": [
+              "ec_tb_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Community Followup",
+            "creates_case": [
+              "ec_hiv_community_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "TB Community Followup",
+            "creates_case": [
+              "ec_tb_community_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Community Followup Feedback",
+            "creates_case": [
+              "ec_hiv_community_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "TB Community Followup Feedback",
+            "creates_case": [
+              "ec_tb_community_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Outcome",
+            "creates_case": [
+              "ec_hiv_outcome",
+              "ec_hiv_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "TB Outcome",
+            "creates_case": [
+              "ec_tb_outcome",
+              "ec_tb_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Notification Dismissal",
+            "creates_case": [
+              "ec_hiv_outcome"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "TB Notification Dismissal",
+            "creates_case": [
+              "ec_tb_outcome"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Hiv Index Contact Registration",
+            "creates_case": [
+              "ec_hiv_index"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Index Contact CHW Followup",
+            "creates_case": [
+              "ec_hiv_index"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Index Contact Testing Followup",
+            "creates_case": [
+              "ec_hiv_index"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Index Contact Community Followup Referral",
+            "creates_case": [
+              "ec_hiv_index",
+              "ec_hiv_index_contact_community_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Index Contact Community Followup Notification Dismissal",
+            "creates_case": [
+              "ec_hiv_index_contact_community_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Pregnancy Unconfirmed",
+            "closes_case": [
+              "ec_anc_register"
+            ]
+          },
+          {
+            "field":"eventType",
+            "field_value": "ANC Partner Community Followup Referral",
+            "creates_case": [
+              "ec_anc_partner_community_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC Partner Community Followup Feedback",
+            "creates_case": [
+              "ec_anc_partner_community_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Partner Registration",
+            "creates_case": [
+              "ec_anc_partners"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PMTCT Community Followup",
+            "creates_case": [
+              "ec_pmtct_community_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PMTCT Community Followup Feedback",
+            "creates_case": [
+              "ec_pmtct_community_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Mother Champion Community Services Referral",
+            "creates_case": [
+              "ec_mother_champion"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Mother Champion Followup",
+            "creates_case": [
+              "ec_mother_champion_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HEI Community Followup",
+            "creates_case": [
+              "ec_pmtct_community_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Mother Champion SBCC Sessions",
+            "creates_case": [
+              "ec_sbcc"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Self Testing Registration",
+            "creates_case": [
+              "ec_hivst_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Self Testing Kits Issue",
+            "creates_case": [
+              "ec_hivst_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Self Testing Results Registration",
+            "creates_case": [
+              "ec_hivst_results"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Self Testing Results",
+            "creates_case": [
+              "ec_hivst_results"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIVST Mobilization Session",
+            "creates_case":[
+              "ec_hivst_mobilization"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CDP Outlet Registration",
+            "creates_case": [
+              "ec_cdp_outlet",
+              "ec_cdp_outlet_stock_count"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Disable CDP Outlet",
+            "closes_case": [
+              "ec_cdp_outlet"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Enable CDP Outlet",
+            "creates_case": [
+              "ec_cdp_outlet"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CDP Outlet Restock",
+            "creates_case": [
+              "ec_cdp_stock_count",
+              "ec_cdp_stock_log"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CDP Receive From Facility",
+            "creates_case": [
+              "ec_cdp_stock_count",
+              "ec_cdp_stock_log"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CDP Outlet Visit",
+            "creates_case": [
+              "ec_cdp_outlet_stock_count",
+              "ec_cdp_outlet_visit"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CDP Condom Order",
+            "creates_case": [
+              "ec_cdp_orders"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "AGYW Registration",
+            "creates_case": [
+              "ec_agyw_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "AGYW GRADUATE SERVICES",
+            "closes_case": [
+              "ec_agyw_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "AGYW Behavioral Services",
+            "creates_case": [
+              "ec_agyw_register",
+              "ec_agyw_behavioral_services"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "AGYW Bio Medical Services",
+            "creates_case": [
+              "ec_agyw_register",
+              "ec_agyw_bio_medical_services"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "AGYW Structural Services",
+            "creates_case": [
+              "ec_agyw_structural_services",
+              "ec_agyw_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "KVP PrEP Registration",
+            "creates_case": [
+              "ec_kvp_prep_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Kvp PrEP Follow-up Visit",
+            "creates_case": [
+              "ec_kvp_prep_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "SBC Enrollment",
+            "creates_case": [
+              "ec_sbc_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "SBC Follow-up Visit",
+            "creates_case": [
+              "ec_sbc_visit"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "SBC Health Education Mobilization",
+            "creates_case": [
+              "ec_sbc_mobilization_session"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Monthly Social Media Report",
+            "creates_case": [
+              "ec_sbc_monthly_social_media_report"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "GE Enrollment",
+            "creates_case": [
+              "ec_gender_equality"
+            ]
+          },
           {
             "field": "eventType",
             "field_value": "GE Services",
             "creates_case": [
-              "ec_gender_service"
+              "ec_gender_services"
             ]
           }
+
         ]
       }
     }

@@ -38,7 +38,7 @@ public class GeRegisterActivity extends BaseRegisterActivity {
         presenter = new GeRegisterActivityPresenter();
     }
 
-// Default it's Fragment
+// Default Fragment
     @Override
     protected BaseRegisterFragment getRegisterFragment() {
         return new GeRegisterFragment();
@@ -156,7 +156,6 @@ public class GeRegisterActivity extends BaseRegisterActivity {
     protected void registerBottomNavigation() {
         bottomNavigationHelper = new BottomNavigationHelper();
     }
-
 
 //    the following method applies intent that is used to open one activity from another
 //    Usage: Intent intent = new Intent(source,destination);

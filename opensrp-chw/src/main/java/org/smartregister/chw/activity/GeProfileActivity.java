@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.viewpager.widget.ViewPager;
 
@@ -21,6 +22,7 @@ import org.smartregister.chw.anc.util.NCUtils;
 import org.smartregister.chw.contract.GeRegisterFragmentContract;
 import org.smartregister.chw.core.contract.CoreGeProfileContract;
 import org.smartregister.chw.fragment.GeRegisterFragment;
+import org.smartregister.chw.interactor.GeProfileInteractor;
 import org.smartregister.chw.model.GeProfileModel;
 import org.smartregister.chw.model.GeRegisterFragmentModel;
 import org.smartregister.chw.presenter.GeProfilePresenter;
@@ -39,10 +41,12 @@ import timber.log.Timber;
 public class GeProfileActivity extends BaseProfileActivity implements CoreGeProfileContract.View {
     CommonPersonObjectClient commonPersonObjectClient;
     private GeProfilePresenter presenter;
+
     @Override
     protected void initializePresenter() {
         GeProfileModel geProfileModel = new GeProfileModel();
-        presenter = new GeProfilePresenter(geProfileModel);
+        GeProfileInteractor geProfileInteractor = new GeProfileInteractor(this);
+        presenter = new GeProfilePresenter(geProfileModel,geProfileInteractor);
 
     }
 
@@ -55,7 +59,6 @@ public class GeProfileActivity extends BaseProfileActivity implements CoreGeProf
     protected void fetchProfileData() {
 
     }
-
 
     @SuppressLint("TimberArgCount")
     @Override
@@ -72,6 +75,17 @@ public class GeProfileActivity extends BaseProfileActivity implements CoreGeProf
         CustomFontTextView locationTV = findViewById(R.id.textview_detail_two);
         CustomFontTextView idTV = findViewById(R.id.textview_detail_three);
         Button profileButton = findViewById(R.id.btn_profile_registration_info);
+        Button viewHistoryButton = findViewById(R.id.btn_view_history);
+
+//        NEW Button to view history
+
+        Button view_button = findViewById(R.id.btn_view_history);
+
+        view_button.setOnClickListener(view -> {
+            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+            presenter.getViewHistory(commonPersonObjectClient.getColumnmaps().get("base_entity_id"));
+        });
+
 
         CoreGeProfileContract.ClientInfo clientInfo = presenter.getClientsInfo(commonPersonObjectClient);
         Timber.d("message", clientInfo);
@@ -87,57 +101,36 @@ public class GeProfileActivity extends BaseProfileActivity implements CoreGeProf
 
 //        Set Text in the Button - use strings resource
         profileButton.setText("Record Provision of GE Services");
+        viewHistoryButton.setText("View History of GE Services");
 
 //        Set listener on button once user clicks
         profileButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
 //                      Receive the information sent by intent i.e entity_id
-                        String received_base_entity_id = getIntent().getStringExtra("entity_id");
+//                        String received_base_entity_id = intent.getStringExtra("entity_id");
+                        String received_base_entity_id = intent.getStringExtra("client_info");
                         startFormActivity("individual_ge_form", received_base_entity_id, null);
 
                     }
                 }
         );
+
+//        OR use lambda function
+//        profileButton.setOnClickListener(
+//                view -> {
+//
+////                      Receive the information sent by intent i.e entity_id
+////                        String received_base_entity_id = intent.getStringExtra("entity_id");
+//                    String received_base_entity_id = intent.getStringExtra("client_info");
+//                    startFormActivity("individual_ge_form", received_base_entity_id, null);
+//
+//                }
+//        );
     }
 
-
-    @SuppressLint("TimberArgCount")
-    @Override
-    public void startFormActivity(String formName, String entityId, String metaData) {
-        super.startFormActivity(formName, entityId, metaData);
-        try {
-
-//              Convert JSON form to JSON object
-            FormUtils formUtils = new FormUtils();
-            JSONObject jsonObject =formUtils.getFormJsonFromRepositoryOrAssets(this,formName);
-
-//              Link json Object to the json form using base_entity_id Key
-            jsonObject.put("entity_id",commonPersonObjectClient.getColumnmaps().get("base_entity_id"));
-
-//            Call startFormActivity method
-            startFormActivity(jsonObject);
-
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-        if (requestCode == 700 && resultCode == RESULT_OK){
-
-//           Receive the data of type String using getStringExtra
-            String filledForm = intent.getStringExtra("json");
-
-            presenter.convertDataToEvent(filledForm);
-
-        }
-    }
 
     @Override
     public void startFormActivity(JSONObject jsonObject) {
@@ -151,6 +144,39 @@ public class GeProfileActivity extends BaseProfileActivity implements CoreGeProf
 
         startActivityForResult(intent, 700);
 
+    }
+
+    @SuppressLint("TimberArgCount")
+    @Override
+    public void startFormActivity(String formName, String entityId, String metaData) {
+        super.startFormActivity(formName, entityId, metaData);
+
+    /*  Call getJSonForm from startFormActivity method
+        ~ getJsonForm is a method that returns a JSONObject.
+        ~ startFormActivity expects a JSONObject as its argument.
+        ~ Since getJsonForm returns a JSONObject,the returned value
+          can be directly passed as an argument to startFormActivity.
+    */
+//        startFormActivity(presenter.getJsonForm(commonPersonObjectClient, formName));
+
+//      0R
+//      getJsonForm is called, and it returns a JSONObject
+        JSONObject returnedJsonObject = presenter.getJsonForm(commonPersonObjectClient, formName);
+
+//      The returned JSONObject is then passed to startFormActivity
+        startFormActivity(returnedJsonObject);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        if (requestCode == 700 && resultCode == RESULT_OK){
+
+//           Receive the data of type String using getStringExtra
+            String filledForm = intent.getStringExtra("json");
+
+            presenter.processDataToEvent(filledForm);
+
+        }
     }
 }
 

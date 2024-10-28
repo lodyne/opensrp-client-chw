@@ -4,6 +4,7 @@ package org.smartregister.chw.model;
 
 import org.json.JSONObject;
 import org.smartregister.chw.core.contract.CoreGeProfileContract;
+import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.util.Utils;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 
@@ -21,4 +22,14 @@ public class GeProfileModel implements CoreGeProfileContract.Model {
 
         return new CoreGeProfileContract.ClientInfo(firstname, middlename, lastname, age, gender, location, uniqueID);
     }
+
+
+    public String getMainCondition(String mainCondition){
+        return "base_entity_id="+mainCondition;
+    }
+    public String getViewHistory(String mainCondition){
+        return "SELECT * FROM "+CoreConstants.TABLE_NAME.GENDER_SERVICES+ " WHERE "+getMainCondition(mainCondition);
+
+    }
+
 }
